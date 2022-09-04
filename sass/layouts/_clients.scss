@@ -1,0 +1,40 @@
+.clients__title {
+    margin-bottom: 50px;
+}
+
+.clients__list {
+    @include cflex();
+    gap: 30px;
+    @include up2desktop {
+        flex-wrap: wrap;
+    }
+}
+
+.clients__item {
+    width: calc((100% - 30px)/2);
+    @include tablet {
+        width: calc((100% - 30px * 2)/3);
+    }
+    @include desktop {
+        width: calc((100% - 30px * 5)/6);
+    }
+}
+
+.clients__link {
+    width: 100%;
+    height: 100%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    @include ccflex();
+    color: var(--item-color-main);
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    fill: currentColor;
+
+    @include transition('color');
+
+    &:hover,
+    &:focus {
+        color: var(--item-color-accent);
+    }
+}

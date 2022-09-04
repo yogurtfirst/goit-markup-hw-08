@@ -1,0 +1,66 @@
+.hero {
+    text-align: center;
+    padding-top: 118px;
+    padding-bottom: 118px;
+    background-color: #C4C4C4;
+
+    @include hero-bg-img('../images/hero-480.jpg');
+    @include bg-2x {
+        @include hero-bg-img('../images/hero-480-2x.jpg');
+    }
+    @include mobile {
+        @include hero-bg-img('../images/hero-768.jpg');
+        @include bg-2x {
+            @include hero-bg-img('../images/hero-768-2x.jpg');
+        }
+    }
+    @include tablet {
+        @include hero-bg-img('../images/hero-1200.jpg');
+        @include bg-2x {
+            @include hero-bg-img('../images/hero-1200-2x.jpg');
+        }
+    }
+    @include desktop {
+            padding-top: 200px;
+            padding-bottom: 200px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.hero__title {
+    color: var(--font-color-contrast);
+    @include font(900, 26px, 1.62, 0.06em);
+    text-transform: uppercase;
+
+    margin-top: 0px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 360px;
+
+    @include desktop {
+        @include font(900, 44px, 1.36, 0.06em);
+        max-width: 696px;
+    }
+}
+
+.hero__btn {
+    background-color: var(--background-color-accent);
+    color: var(--font-color-contrast);
+    @include font(700, 16px, 1.88, 0.06em);
+
+    padding: 10px 32px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+    @include transition('background-color');
+
+    &:hover,
+    &:focus {
+        background-color: var(--item-bgcolor-focus);
+    }
+}

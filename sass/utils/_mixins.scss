@@ -1,0 +1,77 @@
+@mixin transition($element) {
+    transition-property: #{$element};
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@mixin font($weight, $size, $height, $spacing) {
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+    letter-spacing: $spacing;
+}
+
+@mixin flex() {
+    display: flex;
+    align-items: center;
+}
+
+@mixin cflex() {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin ccflex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin hero-bg-img($url) {
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+                      url(#{$url});
+}
+
+@mixin bg-2x {
+    @media (min-device-pixel-ratio: 2),
+            (min-resolution: 192dpi),
+            (min-resolution: 2dppx) {
+                @content;
+            }
+}
+
+@mixin mobile {
+    @media screen and (min-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin up2mobile {
+    @media screen and (max-width: 479px) {
+        @content;
+    }
+}
+
+@mixin up2tablet {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin up2desktop {
+    @media screen and (max-width: 1199px) {
+        @content;
+    }
+}

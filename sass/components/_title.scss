@@ -1,0 +1,7 @@
+.title {
+    text-align: center;
+    @include font(700, 28px, 1.17, 0.03em);
+    @include desktop {
+        font-size: 36px;
+    }
+}

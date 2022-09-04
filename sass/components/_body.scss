@@ -1,0 +1,9 @@
+body {
+    color: var(--font-color-main);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+
+    @include mobile {
+        margin: 0 auto;
+    }
+}

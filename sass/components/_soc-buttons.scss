@@ -1,0 +1,26 @@
+.soc-buttons {
+    @include ccflex();
+    column-gap: 10px;
+}
+
+.soc-buttons__item {
+    width: 44px;
+    height: 44px;
+}
+
+.soc-buttons__link {
+    background-color: var(--background-color-main);
+    fill: var(--item-color-main);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    @include ccflex();
+
+    @include transition('background-color, fill');
+
+    &:hover,
+    &:focus {
+        background-color: var(--item-color-accent);
+        fill: var(--item-color-contrast);
+    }
+}

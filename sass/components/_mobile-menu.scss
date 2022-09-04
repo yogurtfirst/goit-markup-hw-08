@@ -1,0 +1,119 @@
+.is-close {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-color-main);
+
+    padding: 48px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include tablet {
+        display: none;
+    }
+}
+
+.mobile-menu-btn-close {
+    position: absolute;
+    @include ccflex();
+    top: 10px;
+    right: 15px;
+
+    color: var(--font-color-main);
+    background-color: var(--background-color-main);
+
+    @include transition('color');
+
+    &:hover,
+    &:focus {
+        color: var(--item-color-accent);
+    }
+
+    svg {
+        fill: currentColor;
+    }
+}
+
+.mobile-menu-nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.mobile-menu-nav__link {
+    color: var(--font-color-main);
+    @include font(500, 40px, 1.18, 0.02em);
+    @include transition('color');
+    
+    &:hover,
+    &:focus {
+        color: var(--item-color-accent);
+    }
+    &--current {
+        color: var(--item-color-accent);
+    }
+}
+
+.mobile-menu-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.mobile-menu-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.mobile-menu-contacts__link {
+    @include font(500, 24px, 1.17, 0.02em);
+    &--tel {
+        @include mobile {
+            @include font(500, 34px, 1.18, 0.02em);
+        }
+        color: var(--font-color-accent);
+    }
+    &--mail {
+        color: var(--font-color-secondary);
+    }
+}
+
+.mobile-menu-soc {
+    @include flex();
+    gap: 20px;
+}
+
+.mobile-menu-soc__item {
+    position: relative;
+}
+
+.mobile-menu-soc__item:not(:last-child) {
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -10px;
+        width: 1px;
+        height: 22px;
+        background-color: rgba(33, 33, 33, 0.2);
+    }
+}
+
+.mobile-menu-soc__link {
+    @include font(500, 12px, 1.22, 0.02em);
+    color: var(--item-color-accent);
+    @include mobile {
+        @include font(500, 18px, 1.22, 0.02em);
+    }
+}

@@ -1,0 +1,46 @@
+.qualities__list {
+    @include cflex();
+    gap: 30px;
+    @include up2tablet {
+        flex-direction: column;
+    }
+    @include up2desktop {
+        flex-wrap: wrap;
+    }
+}
+
+.qualities__item {
+    width: 100%;
+    @include tablet {
+        width: calc((100% - 30px)/2);
+    }
+    @include desktop {
+        width: calc((100% - 30px*3)/4);
+    }
+}
+
+.qualities__object {
+    background-color: var(--background-color-secondary);
+    @include ccflex();
+    border-radius: 4px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.qualities__title {
+    @include font(700, 14px, 1.14, 0.03em);
+    text-transform: uppercase;
+
+    margin-top: 30px;
+    margin-bottom: 10px;
+    @include up2tablet {
+        text-align: center;
+    }
+}
+
+.qualities__txt {
+    color: var(--font-color-secondary);
+    @include font(400, 14px, 1.71, 0.03em);
+
+    margin-bottom: 0px;
+}

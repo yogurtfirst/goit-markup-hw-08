@@ -1,0 +1,211 @@
+.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+
+    @include transition('visibility, opacity');
+}
+
+.modal {
+    background-color: var(--background-color-main);
+    
+    padding: 40px;
+    width: 100%;
+    transform: scale(1);
+    @include mobile {
+        width: 450px;
+        border-radius: 4px;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+                    0px 1px 1px rgba(0, 0, 0, 0.14),
+                    0px 2px 1px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    @include desktop {
+        width: 528px;
+    }
+    @include up2mobile {
+        height: 100%;
+    }
+    
+    @include transition('transform');
+
+    .is-hidden & {
+        transform: scale(0.8);
+        @include mobile {
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+    }
+}
+
+.modal__close-btn {
+    position: absolute;
+    @include ccflex();
+    top: 8px;
+    right: 8px;
+
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    color: var(--font-color-main);
+    background-color: var(--background-color-main);
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    @include transition('box-shadow, color');
+
+    &:hover,
+    &:focus {
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.16);
+        color: var(--item-color-accent);
+    }
+
+    svg {
+        fill: currentColor;
+    }
+}
+
+.modal__form {
+    text-align: center;
+}
+
+.modal__title {
+    color: var(--font-color-main);
+    @include font(700, 20px, 1.15, 0.03em);
+
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.modal__label {
+    display: block;
+    position: relative;
+    text-align: left;
+
+    & + & {
+        margin-top: 28px;
+    }
+}
+
+.modal__txt {
+    display: block;
+    position: absolute;
+    transform: translateY(calc(-100% - 4px));
+    @include font(400, 12px, 1.17, 0.01em);
+
+    color: var(--font-color-secondary);
+}
+
+.modal__icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include transition('fill');
+
+    .modal__input:focus + & {
+        fill: var(--item-color-accent);
+    }
+}
+
+.modal__input {
+    display: block;
+    width: 100%;
+    resize: none;
+    padding: 12px 12px 12px 42px;
+
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+
+    @include font(400, 12px, 1.14, 0.01em);
+
+    color: var(--font-color-main);
+
+    @include transition('border');
+
+    &:focus {
+        border: 1px solid var(--item-color-accent);
+        outline-style: none;
+    }
+
+    &.textarea {
+        height: 120px;
+        padding: 12px 16px;
+
+        @include font(400, 12px, 1.17, 0.01em);
+
+        color: var(--font-color-main);
+
+        &::placeholder {
+            color: rgba(117, 117, 117, 0.5);
+        }
+    }
+}
+
+.modal__checkbox-label {
+    margin-top: 20px;
+    @include ccflex();
+    column-gap: 8.38px;
+}
+
+.modal__checkbox-txt {
+    @include font(400, 12px, 1.17, 0.03em);
+    @include up2mobile {
+        width: fit-content;
+    }
+    @include desktop {
+        @include font(400, 14px, 1.71, 0.03em);
+    }
+    color: var(--font-color-secondary);
+
+    a {
+        color: var(--font-color-accent)
+    }
+}
+
+.modal__checkbox-icon {
+    display: inline-block;
+    width: 16px;
+    height: 15px;
+    border: 2px solid var(--font-color-main);
+    border-radius: 2px;
+
+    @include transition('background-color, background-image, border');
+
+    .modal__checkbox-input:checked + & {
+        border: none;
+        background-color: var(--item-color-accent);
+        background-image: url(../images/check.svg);
+        background-size: contain;
+        background-clip: border-box;
+    }
+}
+
+.modal__btn {
+    background-color: var(--background-color-accent);
+    color: var(--font-color-contrast);
+    @include font(700, 16px, 1.88, 0.06em);
+
+    margin-top: 30px;
+    padding: 10px 52px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+    @include transition('background-color');
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--item-bgcolor-focus);
+    }
+}
